@@ -1,0 +1,23 @@
+
+## Multiple vagrant boxes #
+Vagrant.configure(2) do |config|
+  config.vm.define "centos" do |centos|
+  config.vm.network "private_network", ip: "192.168.33.10"
+  config.vm.hostname = 'centos.redhat.com'
+  centos.vm.box = "centos/7"
+end
+
+config.vm.define "fedora" do |fedora|
+ config.vm.network "private_network", ip: "192.168.33.11"
+    fedora.vm.box = "fedora"
+  end
+ end
+## Ansible Provision ##
+#  config.vm.provision "ansible" do |ansible|
+#  ansible.inventory_path = "/etc/ansible/hosts"
+#  ansible.playbook = "/etc/ansible/playbook/ansible/vagrant_example1.yml"
+#  ansible.verbose = "-vv"
+#  ansible.sudo = true
+#  ansible.limit = 'all'
+#end
+# end
